@@ -1,6 +1,6 @@
 # Kingsley Mmadubugwu | Network Engineer Portfolio
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-38bdf8?style=for-the-badge&logo=vercel)](https://Kmmadu.github.io)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-38bdf8?style=for-the-badge&logo=vercel)](https://kmmadu.github.io/Portfolio/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kmmadu)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kingsley-mmadubugwu-698776268/)
 
@@ -83,3 +83,5 @@ kingsley-portfolio/
 - Modify content in index.html
 - Adjust colours in: root variables in style.css
 - Update Formspree endpoint in contact form
+
+**Live Demo**: [View Portfolio](https://kmmadu.github.io/Portfolio/)
