@@ -1,3 +1,4 @@
+/* ========== RESET & VARIABLES ========== */
 * {
   margin: 0;
   padding: 0;
@@ -5,26 +6,28 @@
 }
 
 :root {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-nav: #020617;
-  --accent: #38bdf8;
-  --accent-glow: #00a3ff;
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --border: #334155;
-  --card-hover: #2d3a4e;
+  /* Color Palette */
+  --bg-primary: #0f172a;      /* Dark slate background */
+  --bg-secondary: #1e293b;    /* Lighter slate for cards */
+  --bg-nav: #020617;          /* Deepest slate for navbar */
+  --accent: #38bdf8;          /* Sky blue accent color */
+  --accent-glow: #00a3ff;     /* Brighter blue for glow effects */
+  --text-primary: #ffffff;    /* White text */
+  --text-secondary: #94a3b8;  /* Muted gray text */
+  --border: #334155;          /* Border color */
+  --card-hover: #2d3a4e;      /* Card hover state */
 }
 
+/* ========== BASE STYLES ========== */
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Particles Background */
+/* Particles.js Background Canvas */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -34,7 +37,7 @@ body {
   left: 0;
 }
 
-/* ========== NAVBAR ========== */
+/* ========== NAVIGATION BAR ========== */
 header {
   position: sticky;
   top: 0;
@@ -53,7 +56,7 @@ header {
   margin: 0 auto;
 }
 
-/* TERMINAL-STYLE MK LOGO */
+/* Terminal-Style MK Logo */
 .logo {
   font-family: 'Courier New', monospace;
   font-size: 1.8rem;
@@ -258,7 +261,7 @@ header {
   border-radius: 50%;
 }
 
-/* ========== GENERAL SECTIONS ========== */
+/* ========== GENERAL SECTION STYLES ========== */
 .section {
   padding: 5rem 2rem;
   min-height: 100vh;
@@ -352,6 +355,47 @@ header {
   margin-top: 0.5rem;
 }
 
+/* Tools Section (Internal - Used within About) */
+.tools-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.tools-section p {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tools span {
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.tools span:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.tools span i {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
 /* ========== PROJECTS SECTION ========== */
 .projects-grid {
   display: grid;
@@ -374,6 +418,7 @@ header {
 }
 
 .project-image {
+  position: relative;
   overflow: hidden;
 }
 
@@ -386,6 +431,33 @@ header {
 
 .project-card:hover .project-image img {
   transform: scale(1.05);
+}
+
+/* Coming Soon Badge for Projects */
+.coming-soon-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .project-content {
@@ -479,6 +551,35 @@ header {
 
 .cert-link:hover {
   opacity: 0.8;
+}
+
+/* Certificate Status Badges */
+.cert-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.cert-card:hover .cert-badge {
+  background: rgba(56, 189, 248, 0.25);
+  transform: scale(1.02);
+}
+
+/* Spinner Animation for In Progress Certificates */
+.fa-pulse {
+  animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* ========== EXPERIENCE TIMELINE ========== */
@@ -643,9 +744,63 @@ footer {
   padding: 2rem;
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
+  position: relative;
+}
+
+/* ========== BACK TO TOP BUTTON ========== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(56, 189, 248, 0.5);
+}
+
+.back-to-top.show {
+  display: flex;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
+/* Tablet and medium screens */
 @media (max-width: 968px) {
   .hero-container {
     flex-direction: column;
@@ -694,6 +849,7 @@ footer {
   }
 }
 
+/* Mobile screens */
 @media (max-width: 768px) {
   .hamburger {
     display: block;

@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kingsley | Network Engineer Portfolio</title>
+  <title>Kingsley Mmadubugwu | Network Engineer Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
-  <!-- Load CSS libraries first -->
+  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Google Fonts - Modern Tech Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Browser Tab Icon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2338bdf8'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMK%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- Navigation Bar -->
 <header>
   <nav class="navbar">
     <h2 class="logo">MK</h2>
@@ -30,20 +34,21 @@
   </nav>
 </header>
 
+<!-- Particle.js Background Canvas -->
 <div id="particles-js"></div>
 
-<!-- HERO -->
+<!-- Hero Section -->
 <section id="home" class="hero">
   <div class="hero-container">
     <div class="hero-text" data-aos="fade-right">
       <h1>Hi There,</h1>
       <h1>I'm <span class="highlight">Kingsley</span></h1>
       <h2>Network Engineer & System Administrator</h2>
-      <p class="hero-description">Designing, implementing, and securing enterprise-grade network infrastructures.</p>
+      <p class="hero-description">Supporting, monitoring, and improving network infrastructure and system reliability.</p>
 
       <div class="hero-buttons">
         <a href="#projects" class="btn">View Projects</a>
-        <a href="#" class="btn-outline">Download CV</a>
+        <a href="assets/Kingsley_CV.pdf" class="btn-outline" download>Download CV</a>
       </div>
 
       <div class="social-icons">
@@ -58,40 +63,47 @@
 
     <div class="hero-image" data-aos="fade-left">
       <div class="image-wrapper">
-        <img src="assets/IMG_6986.JPG" alt="Profile Image">
+        <img src="assets/IMG_6986.JPG" alt="Kingsley Mmadubugwu - Network Engineer">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- About Section -->
 <section id="about" class="section">
   <div class="container">
     <h2 data-aos="fade-up">About Me</h2>
     <div class="about-content">
       <div class="about-text" data-aos="fade-right">
-        <p>I'm an IT Engineer with <span class="highlight">5+ years</span> of experience in networking, system administration, and infrastructure support. Passionate about cybersecurity and building reliable systems.</p>
-        <p>Certified professional with expertise in:</p>
+        <p>I'm an IT Engineer with <span class="highlight">2+ years</span> of hands-on experience in networking, system administration, and infrastructure support. I specialize in monitoring and securing network systems, with a growing focus on cybersecurity and automation.</p>
+        
+        <p>I have worked on real-world projects involving network monitoring, system troubleshooting, and infrastructure reliability, alongside formal training in software engineering.</p>
+        
+        <p><strong style="color: var(--text-primary);">Key areas of focus:</strong></p>
         <div class="skills">
+          <span>IT Support and Infrastructure</span>
           <span>Cisco Networking</span>
-          <span>Linux Administration</span>
-          <span>Cloud Computing (AWS/Azure)</span>
-          <span>Cybersecurity</span>
-          <span>Network Automation</span>
-          <span>Firewall Configuration</span>
+          <span>System Troubleshooting</span>
+          <span>Network Monitoring</span>
+          <span>Python (Automation Learning)</span>
+          <span>MikroTik WinBox</span>
+          <span>The Dude</span>
+          <span>VNC Viewer</span>
+          <span>Linux CLI</span>
         </div>
       </div>
+      
       <div class="about-stats" data-aos="fade-left">
         <div class="stat">
-          <h3>5+</h3>
+          <h3>2+</h3>
           <p>Years Experience</p>
         </div>
         <div class="stat">
-          <h3>20+</h3>
+          <h3>6+</h3>
           <p>Projects Completed</p>
         </div>
         <div class="stat">
-          <h3>10+</h3>
+          <h3>1+</h3>
           <p>Certifications</p>
         </div>
       </div>
@@ -99,64 +111,68 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- Projects Section -->
 <section id="projects" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Featured Projects</h2>
     <div class="projects-grid">
+      
+      <!-- NetPulse - Network Monitoring System (Completed) -->
       <div class="project-card" data-aos="fade-up">
         <div class="project-image">
-          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=NetPulse" alt="NetPulse">
+          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=NetPulse" alt="NetPulse Network Monitoring Dashboard">
         </div>
         <div class="project-content">
           <h3>NetPulse Monitoring Tool</h3>
-          <p>Real-time network monitoring system with automated alerts via email and Slack integration.</p>
+          <p>Built a Python-based network monitoring tool that tracks device availability using ICMP (ping), detects downtime in real-time, and sends automated email alerts. Designed as a lightweight alternative to enterprise monitoring tools, with plans for a web-based dashboard.</p>
           <div class="tech-stack">
             <span>Python</span>
-            <span>SNMP</span>
-            <span>Docker</span>
+            <span>ICMP/Ping</span>
+            <span>SMTP Email Alerts</span>
           </div>
           <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> Code</a>
-            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+            <a href="https://github.com/Kmmadu/NetPulse" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+            <a href="#" class="video-demo-link" onclick="alert('Video demonstration is currently being recorded. Check back soon.'); return false;"><i class="fas fa-play-circle"></i> Watch Demo</a>
           </div>
         </div>
       </div>
 
+      <!-- AutoFirewall Manager - In Development -->
       <div class="project-card" data-aos="fade-up" data-aos-delay="100">
         <div class="project-image">
-          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Firewall+Manager" alt="Firewall Manager">
+          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=AutoFirewall+Manager" alt="AutoFirewall Manager - Coming Soon">
+          <div class="coming-soon-badge">In Development</div>
         </div>
         <div class="project-content">
           <h3>AutoFirewall Manager</h3>
-          <p>Automated firewall rule management system with audit logging and compliance checking.</p>
+          <p>Automated firewall rule management system with audit logging and compliance checking. Planned implementation using Python and iptables.</p>
           <div class="tech-stack">
-            <span>Bash</span>
+            <span>Python</span>
             <span>iptables</span>
-            <span>MySQL</span>
+            <span>PostgreSQL</span>
           </div>
           <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> Code</a>
-            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+            <a href="#" style="opacity:0.6; cursor: not-allowed;"><i class="fab fa-github"></i> Currently in Development</a>
           </div>
         </div>
       </div>
 
+      <!-- CloudSecure Backup - Planned -->
       <div class="project-card" data-aos="fade-up" data-aos-delay="200">
         <div class="project-image">
-          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Cloud+Backup" alt="Cloud Backup">
+          <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=CloudSecure+Backup" alt="CloudSecure Backup - Coming Soon">
+          <div class="coming-soon-badge">Planned</div>
         </div>
         <div class="project-content">
           <h3>CloudSecure Backup</h3>
-          <p>Encrypted backup solution for enterprise servers with AWS S3 integration.</p>
+          <p>Encrypted backup solution for enterprise servers with AWS S3 integration. Will feature automated scheduling and data encryption.</p>
           <div class="tech-stack">
             <span>AWS</span>
             <span>Python</span>
             <span>Cryptography</span>
           </div>
           <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> Code</a>
-            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+            <a href="#" style="opacity:0.6; cursor: not-allowed;"><i class="fab fa-github"></i> Planned (Next Project)</a>
           </div>
         </div>
       </div>
@@ -164,93 +180,105 @@
   </div>
 </section>
 
-<!-- CERTIFICATES -->
+<!-- Certificates Section -->
 <section id="certificates" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Professional Certificates</h2>
     <div class="certificates-grid">
+      
+      <!-- ALX Software Engineering - Earned -->
       <div class="cert-card" data-aos="zoom-in">
         <i class="fas fa-certificate"></i>
-        <h3>CCNA (Cisco)</h3>
-        <p>Cisco Certified Network Associate</p>
-        <a href="#" class="cert-link" target="_blank">View Certificate →</a>
-      </div>
-      <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
-        <i class="fas fa-certificate"></i>
         <h3>ALX Software Engineering</h3>
-        <p>Full-stack development program</p>
-        <a href="#" class="cert-link" target="_blank">View Certificate →</a>
+        <p>Full-stack development program - Earned 2024</p>
+        <a href="https://savanna.alxafrica.com/certificates/TGBfShY7Lc" class="cert-link" target="_blank">Verify Certificate →</a>
       </div>
+
+      <!-- CCNA - In Progress -->
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-spinner fa-pulse"></i>
+        <h3>CCNA (Cisco)</h3>
+        <p>Cisco Certified Network Associate - In Progress</p>
+        <span class="cert-badge">In Progress</span>
+      </div>
+
+      <!-- AWS Solutions Architect - Planned -->
       <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
-        <i class="fas fa-certificate"></i>
+        <i class="fas fa-cloud-upload-alt"></i>
         <h3>AWS Solutions Architect</h3>
-        <p>Associate Level Certification</p>
-        <a href="#" class="cert-link" target="_blank">View Certificate →</a>
+        <p>Associate Level - Study Phase</p>
+        <span class="cert-badge">Planned</span>
       </div>
+
+      <!-- CompTIA Security+ - Planned -->
       <div class="cert-card" data-aos="zoom-in" data-aos-delay="300">
-        <i class="fas fa-certificate"></i>
+        <i class="fas fa-shield-alt"></i>
         <h3>CompTIA Security+</h3>
-        <p>Cybersecurity certification</p>
-        <a href="#" class="cert-link" target="_blank">View Certificate →</a>
+        <p>Cybersecurity certification - Research Phase</p>
+        <span class="cert-badge">Planned</span>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- Experience Section -->
 <section id="experience" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Work Experience</h2>
     <div class="timeline">
+
+      <!-- Current Role: IT Engineer -->
       <div class="timeline-item" data-aos="fade-right">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">2022 - Present</div>
+        <div class="timeline-date">2025 - Present</div>
         <div class="timeline-content">
-          <h3>Senior Network Engineer</h3>
-          <h4>SwiftTalk Technologies</h4>
-          <p>Managing enterprise network infrastructure, implementing security protocols, and ensuring 99.9% uptime across 5 data centers.</p>
+          <h3>IT Engineer</h3>
+          <h4>SwiftTalk Ltd</h4>
+          <p>
+            Maintain, monitor, and troubleshoot network infrastructure, supporting system reliability and minimizing downtime.
+            Monitor network performance using MikroTik WinBox and The Dude, proactively identifying and resolving connectivity issues.
+            Provide technical support for internal users and assist with system administration tasks.
+          </p>
           <div class="timeline-skills">
-            <span>Cisco IOS</span>
-            <span>VPN</span>
-            <span>Firewalls</span>
+            <span>Network Monitoring</span>
+            <span>System Troubleshooting</span>
+            <span>MikroTik WinBox</span>
+            <span>The Dude</span>
+            <span>VNC Viewer</span>
           </div>
         </div>
       </div>
 
+      <!-- Industrial Training & Field Experience -->
       <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">2020 - 2022</div>
+        <div class="timeline-date">2023 - 2024</div>
         <div class="timeline-content">
-          <h3>System Administrator</h3>
-          <h4>DataCore Solutions</h4>
-          <p>Administered Linux servers, automated backup routines, and reduced system downtime by 40%.</p>
+          <h3>IT Intern & Field Engineering Assistant</h3>
+          <h4>SwiftTalk Ltd</h4>
+          <p>
+            Completed a one-year industrial training program, assisting field engineers with network equipment installation,
+            configuration, and maintenance at client sites. Gained hands-on experience with The Dude monitoring tool,
+            VNC remote access, and basic router configuration. Participated in troubleshooting network issues,
+            cable management, and documentation of IT procedures.
+          </p>
           <div class="timeline-skills">
-            <span>Linux</span>
-            <span>Bash</span>
-            <span>Docker</span>
+            <span>Field Installation</span>
+            <span>Network Equipment Setup</span>
+            <span>Hardware Maintenance</span>
+            <span>The Dude</span>
+            <span>VNC Viewer</span>
+            <span>Cable Management</span>
           </div>
         </div>
       </div>
 
-      <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2018 - 2020</div>
-        <div class="timeline-content">
-          <h3>IT Support Specialist</h3>
-          <h4>NetGuard Security</h4>
-          <p>Provided technical support, maintained network hardware, and resolved critical infrastructure issues.</p>
-          <div class="timeline-skills">
-            <span>Windows Server</span>
-            <span>Active Directory</span>
-            <span>TCP/IP</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT SECTION - FIXED WITH FORMSPREE INTEGRATION -->
+<!-- Contact Section -->
 <section id="contact" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Get In Touch</h2>
@@ -265,9 +293,8 @@
         </div>
       </div>
       
-      <!-- FIXED: Formspree integration - action and method correctly placed on form -->
+      <!-- Formspree Contact Form -->
       <form id="contact-form" class="contact-form" data-aos="fade-left" action="https://formspree.io/f/mlgazodz" method="POST">
-        <input type="hidden" name="_to" value="mmadubugwukingsley@gmail.com">
         <input type="hidden" name="_subject" value="New Portfolio Message from Kingsley's Website">
         <input type="text" name="name" id="name" placeholder="Your Name" required>
         <input type="email" name="email" id="email" placeholder="Your Email" required>
@@ -279,13 +306,19 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
-  <p>&copy; 2026 Kingsley. All rights reserved.</p>
+  <p>&copy; 2026 Kingsley Mmadubugwu. All rights reserved.</p>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </footer>
 
-<!-- Load scripts in CORRECT order -->
+<!-- Third-party Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Main JavaScript -->
 <script src="script.js"></script>
 </body>
 </html>

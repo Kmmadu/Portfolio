@@ -1,29 +1,47 @@
+/**
+ * Kingsley Mmadubugwu - Portfolio Website
+ * Network Engineer & System Administrator
+ * Features: Particles.js, AOS animations, Formspree contact, smooth scrolling, back to top
+ */
+
 // Wait for everything to load
 window.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded - initializing everything');
+    console.log('Portfolio initialized - Starting all features');
     
-    // Initialize AOS first
+    // ========== INITIALIZE AOS (Animate on Scroll) ==========
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             once: true,
             offset: 100,
-            disable: false // Make sure it's enabled
+            disable: false
         });
-        console.log('✅ AOS initialized');
+        console.log('AOS animations initialized');
     } else {
-        console.error('❌ AOS not loaded');
+        console.error('AOS library not loaded - Check CDN connection');
     }
     
-    // Initialize Particles with error handling
+    // ========== INITIALIZE PARTICLES.JS BACKGROUND ==========
     if (typeof particlesJS !== 'undefined') {
         particlesJS("particles-js", {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
+                number: { 
+                    value: 80, 
+                    density: { 
+                        enable: true, 
+                        value_area: 800 
+                    } 
+                },
                 color: { value: "#38bdf8" },
                 shape: { type: "circle" },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
+                opacity: { 
+                    value: 0.5, 
+                    random: false 
+                },
+                size: { 
+                    value: 3, 
+                    random: true 
+                },
                 line_linked: {
                     enable: true,
                     distance: 150,
@@ -43,22 +61,27 @@ window.addEventListener('DOMContentLoaded', function() {
             interactivity: {
                 detect_on: "canvas",
                 events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
+                    onhover: { 
+                        enable: true, 
+                        mode: "repulse" 
+                    },
+                    onclick: { 
+                        enable: true, 
+                        mode: "push" 
+                    }
                 }
             }
         });
-        console.log('✅ Particles initialized');
+        console.log('Particles.js background initialized');
     } else {
-        console.error('❌ Particles not loaded. Check network tab for CDN access.');
-        // Fallback: Add a gradient background
+        console.error('Particles.js not loaded - Applying fallback background');
         const particlesElement = document.getElementById('particles-js');
         if (particlesElement) {
             particlesElement.style.background = 'linear-gradient(135deg, #020617, #0f172a)';
         }
     }
     
-    // Smooth scrolling
+    // ========== SMOOTH SCROLLING FOR NAVIGATION ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -67,7 +90,10 @@ window.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
                 
                 // Close mobile menu if open
                 const navLinks = document.querySelector('.nav-links');
@@ -78,18 +104,19 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Active section highlighting
+    // ========== ACTIVE SECTION HIGHLIGHTING (IMPROVED) ==========
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
     
     function updateActiveSection() {
         let current = '';
-        const scrollPosition = window.scrollY + 200;
+        const scrollPosition = window.scrollY + 100; // Lower offset for better accuracy
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            const sectionBottom = sectionTop + section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 current = section.getAttribute('id');
             }
         });
@@ -103,9 +130,31 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection(); // Call once to set initial state
+    updateActiveSection(); // Set initial active state
     
-    // Mobile menu toggle
+    // ========== BACK TO TOP BUTTON ==========
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    if (backToTopButton) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Scroll to top when clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // ========== MOBILE HAMBURGER MENU ==========
     const hamburger = document.querySelector('.hamburger');
     const navLinksMenu = document.querySelector('.nav-links');
     
@@ -113,10 +162,9 @@ window.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', function(e) {
             e.stopPropagation();
             navLinksMenu.classList.toggle('active');
-            console.log('Menu toggled:', navLinksMenu.classList.contains('active'));
         });
     } else {
-        console.warn('Hamburger or nav-links not found');
+        console.warn('Mobile menu elements not found');
     }
     
     // ========== CONTACT FORM HANDLING WITH FORMSPREE ==========
@@ -127,12 +175,12 @@ window.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
+            // Get and validate form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             
-            // Validation
+            // Validation checks
             if (!name || !email || !message) {
                 showFormStatus('Please fill in all fields', 'error');
                 return;
@@ -150,10 +198,8 @@ window.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             try {
-                // Create FormData object
+                // Create FormData object and send to Formspree
                 const formData = new FormData(contactForm);
-                
-                // Send to Formspree
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: formData,
@@ -163,9 +209,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (response.ok) {
-                    // Success!
-                    showFormStatus('✓ Message sent successfully! I\'ll get back to you soon.', 'success');
-                    contactForm.reset(); // Clear the form
+                    // Success
+                    showFormStatus('Message sent successfully! I will get back to you soon.', 'success');
+                    contactForm.reset();
                     
                     // Clear success message after 5 seconds
                     setTimeout(() => {
@@ -179,7 +225,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     if (data.errors) {
                         showFormStatus(data.errors.map(error => error.message).join(', '), 'error');
                     } else {
-                        showFormStatus('Oops! Something went wrong. Please try again.', 'error');
+                        showFormStatus('Something went wrong. Please try again.', 'error');
                     }
                 }
             } catch (error) {
@@ -193,7 +239,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 
                 // Clear error message after 5 seconds
                 setTimeout(() => {
-                    if (formStatus && formStatus.style.background.includes('rgba(239, 68, 68')) {
+                    if (formStatus && formStatus.style.background.includes('rgba(239, 68, 68)')) {
                         formStatus.style.display = 'none';
                     }
                 }, 5000);
@@ -201,11 +247,13 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Email validation helper
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
+    // Form status message display
     function showFormStatus(message, type) {
         if (formStatus) {
             formStatus.textContent = message;
@@ -219,7 +267,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Animate stats when they come into view
+    // ========== STATS COUNTER ANIMATION ==========
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px'
@@ -245,6 +293,7 @@ window.addEventListener('DOMContentLoaded', function() {
         observer.observe(aboutSection);
     }
     
+    // Number counter animation
     function animateValue(element, start, end, duration) {
         const startTime = performance.now();
         
@@ -264,7 +313,7 @@ window.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(update);
     }
     
-    // Typing effect
+    // ========== TYPING EFFECT FOR HERO SUBTITLE ==========
     const heroText = document.querySelector('.hero-text h2');
     if (heroText && !heroText.hasAttribute('data-typed')) {
         const originalText = heroText.textContent;
@@ -283,7 +332,7 @@ window.addEventListener('DOMContentLoaded', function() {
         typeWriter();
     }
     
-    // Simple parallax
+    // ========== PARALLAX EFFECT FOR HERO IMAGE ==========
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const heroImage = document.querySelector('.hero-image');
@@ -292,11 +341,10 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Log success
-    console.log('✅ All scripts initialized successfully');
+    console.log('All features initialized successfully');
 });
 
-// Fallback for any errors
+// ========== GLOBAL ERROR HANDLING ==========
 window.addEventListener('error', function(e) {
     console.error('Global error caught:', e.message);
 });
