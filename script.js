@@ -104,13 +104,13 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ========== ACTIVE SECTION HIGHLIGHTING (IMPROVED) ==========
+    // ========== ACTIVE SECTION HIGHLIGHTING ==========
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
     
     function updateActiveSection() {
         let current = '';
-        const scrollPosition = window.scrollY + 100; // Lower offset for better accuracy
+        const scrollPosition = window.scrollY + 100;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -130,13 +130,12 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection(); // Set initial active state
+    updateActiveSection();
     
     // ========== BACK TO TOP BUTTON ==========
     const backToTopButton = document.getElementById('back-to-top');
     
     if (backToTopButton) {
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
                 backToTopButton.classList.add('show');
@@ -145,7 +144,6 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Scroll to top when clicked
         backToTopButton.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
@@ -167,6 +165,32 @@ window.addEventListener('DOMContentLoaded', function() {
         console.warn('Mobile menu elements not found');
     }
     
+    // ========== CASE STUDIES FILTERING ==========
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const caseCards = document.querySelectorAll('.case-card');
+    
+    if (filterButtons.length > 0 && caseCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                caseCards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+    
     // ========== CONTACT FORM HANDLING WITH FORMSPREE ==========
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
@@ -175,12 +199,10 @@ window.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get and validate form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             
-            // Validation checks
             if (!name || !email || !message) {
                 showFormStatus('Please fill in all fields', 'error');
                 return;
@@ -191,14 +213,12 @@ window.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Disable submit button and show loading state
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
             try {
-                // Create FormData object and send to Formspree
                 const formData = new FormData(contactForm);
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
@@ -209,18 +229,15 @@ window.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (response.ok) {
-                    // Success
                     showFormStatus('Message sent successfully! I will get back to you soon.', 'success');
                     contactForm.reset();
                     
-                    // Clear success message after 5 seconds
                     setTimeout(() => {
                         if (formStatus) {
                             formStatus.style.display = 'none';
                         }
                     }, 5000);
                 } else {
-                    // Server error
                     const data = await response.json();
                     if (data.errors) {
                         showFormStatus(data.errors.map(error => error.message).join(', '), 'error');
@@ -229,15 +246,12 @@ window.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             } catch (error) {
-                // Network error
                 console.error('Form submission error:', error);
                 showFormStatus('Network error. Please check your connection and try again.', 'error');
             } finally {
-                // Re-enable submit button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 
-                // Clear error message after 5 seconds
                 setTimeout(() => {
                     if (formStatus && formStatus.style.background.includes('rgba(239, 68, 68)')) {
                         formStatus.style.display = 'none';
@@ -247,13 +261,11 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Email validation helper
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
-    // Form status message display
     function showFormStatus(message, type) {
         if (formStatus) {
             formStatus.textContent = message;
@@ -293,7 +305,6 @@ window.addEventListener('DOMContentLoaded', function() {
         observer.observe(aboutSection);
     }
     
-    // Number counter animation
     function animateValue(element, start, end, duration) {
         const startTime = performance.now();
         

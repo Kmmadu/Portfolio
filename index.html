@@ -19,7 +19,7 @@
 <!-- Navigation Bar -->
 <header>
   <nav class="navbar">
-    <h2 class="logo">MK</h2>
+    <h2 class="logo">KM</h2>
     <div class="hamburger">
       <i class="fas fa-bars"></i>
     </div>
@@ -29,6 +29,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -118,48 +119,35 @@
     <div class="projects-grid">
       
       <!-- NetPulse - Network Monitoring System (Completed) -->
-<div class="project-card" data-aos="fade-up">
-  <div class="project-image">
-    <a href="assets/NetPulse_demo_video.mp4" target="_blank">
-      <img src="assets/NetPulse.png" alt="NetPulse Network Monitoring Dashboard">
-    </a>
-  </div>
+      <div class="project-card" data-aos="fade-up">
+        <div class="project-image">
+          <a href="assets/NetPulse_demo_video.mp4" target="_blank">
+            <img src="assets/NetPulse.png" alt="NetPulse Network Monitoring Dashboard">
+          </a>
+        </div>
+        <div class="project-content">
+          <h3>NetPulse Monitoring Tool</h3>
+          <p>A network monitoring system that tracks device availability via ping and sends email alerts when devices go down or recover. Includes a web dashboard for real-time status viewing.</p>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>ICMP/Ping</span>
+            <span>SMTP Email Alerts</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Kmmadu/NetPulse" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+            <a href="assets/NetPulse_demo_video.mp4" target="_blank" class="video-demo-link"><i class="fas fa-play-circle"></i> Watch Demo</a>
+          </div>
+        </div>
+      </div>
 
-  <div class="project-content">
-    <h3>NetPulse Monitoring Tool</h3>
-
-    <p>
-      A network monitoring system that tracks device availability via ping
-      and sends email alerts when devices go down or recover.
-      Includes a web dashboard for real-time status viewing.
-    </p>
-
-    <div class="tech-stack">
-      <span>Python</span>
-      <span>ICMP/Ping</span>
-      <span>SMTP Email Alerts</span>
-    </div>
-
-    <div class="project-links">
-      <a href="https://github.com/Kmmadu/NetPulse" target="_blank">
-        <i class="fab fa-github"></i> GitHub Repository
-      </a>
-
-      <a href="assets/NetPulse_demo_video.mp4" target="_blank" class="video-demo-link">
-        <i class="fas fa-play-circle"></i> Watch Demo
-      </a>
-    </div>
-  </div>
-</div>
-
-      <!-- AutoFirewall Manager - In Development -->
+      <!-- AutoConfigBackup - In Development -->
       <div class="project-card" data-aos="fade-up" data-aos-delay="100">
         <div class="project-image">
-          <img src=assets/In_progress.png alt="AutoFirewall Manager - In Development">
+          <img src="assets/In_progress.png" alt="AutoConfigBackup - In Development">
           <div class="coming-soon-badge">In Development</div>
         </div>
         <div class="project-content">
-          <h3> AutoConfigBackup </h3>
+          <h3>AutoConfigBackup</h3>
           <p>Automated network configuration backup and version control tool built with Python, Netmiko, and APScheduler. Supports scheduled backups, change detection, logging, and alerting for network devices.</p>
           <div class="tech-stack">
             <span>Python</span>
@@ -172,6 +160,8 @@
         </div>
       </div>
 
+    </div>
+  </div>
 </section>
 
 <!-- Certificates Section -->
@@ -272,6 +262,59 @@
   </div>
 </section>
 
+<!-- ========== TECHNICAL CASE STUDIES SECTION ========== -->
+<section id="case-studies" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Technical Case Studies</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Real-world troubleshooting scenarios demonstrating problem-solving methodology and technical expertise
+    </p>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons" data-aos="fade-up" data-aos-delay="150">
+      <button class="filter-btn active" data-filter="all">All Cases</button>
+      <button class="filter-btn" data-filter="networking">Networking</button>
+      <button class="filter-btn" data-filter="troubleshooting">Troubleshooting</button>
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="case-grid" id="case-grid">
+      
+      <!-- Case Study 1 - VLAN Configuration -->
+      <div class="case-card" data-aos="fade-up" data-aos-delay="200" data-category="networking troubleshooting">
+        <div class="case-badge resolved">Resolved</div>
+        <div class="case-icon">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>Complete Office Network Outage Resolved Through VLAN Reconfiguration</h3>
+        <div class="case-problem">
+          <strong>Problem:</strong>
+          <p>A client reported a complete internet outage across their office network. Initial checks confirmed physical connectivity, but users were unable to access online services.</p>
+        </div>
+        <div class="case-investigation">
+          <strong>Investigation:</strong>
+          <p>Traced the PoE cable path from the router to the wireless radio, performed direct laptop connection tests to isolate the failure point, and logged into the MikroTik router using WinBox. Configuration audit revealed that all VLAN assignments (including VLAN 1 and 2) had been cleared from the main bridge interface after a recent power surge, breaking network segmentation and DHCP relay to clients.</p>
+        </div>
+        <div class="case-resolution">
+          <strong>Resolution:</strong>
+          <p>Reconfigured the required VLAN settings through Winbox, restored proper network segmentation, and verified successful internet connectivity across the client environment.</p>
+        </div>
+        <div class="case-tools">
+          <span><i class="fas fa-network-wired"></i> WinBox</span>
+          <span><i class="fas fa-laptop"></i> Laptop Diagnostics</span>
+          <span><i class="fas fa-database"></i> VLAN Configuration</span>
+        </div>
+        <a href="assets/Vlan_Config.mp4" target="_blank" class="case-btn">
+          <i class="fas fa-play-circle"></i> Watch Technical Breakdown
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="section">
   <div class="container">
@@ -303,7 +346,6 @@
 <!-- Footer -->
 <footer>
   <p>&copy; 2026 Kingsley Mmadubugwu. All rights reserved.</p>
-  <!-- Back to Top Button -->
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
