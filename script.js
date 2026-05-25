@@ -191,6 +191,187 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ========== CASE STUDIES MODAL ==========
+    const modal = document.getElementById('caseModal');
+    
+    // Make openCaseModal available globally for HTML onclick
+    window.openCaseModal = function(caseId) {
+        const modalBody = document.getElementById('modal-body');
+        const caseData = getCaseData(caseId);
+        
+        if (modalBody && caseData) {
+            modalBody.innerHTML = `
+                <div class="modal-breakdown">
+                    <h2 style="color: var(--accent); margin-bottom: 1rem;">${caseData.title}</h2>
+                    <div class="case-badge ${caseData.statusClass}" style="margin-bottom: 1rem; display: inline-block;">${caseData.status}</div>
+                    
+                    <h3>Technical Breakdown</h3>
+                    <p>${caseData.breakdown}</p>
+                    
+                    <h3>Step-by-Step Resolution</h3>
+                    <ul>
+                        ${caseData.steps.map(step => `<li>${step}</li>`).join('')}
+                    </ul>
+                    
+                    <h3>Tools & Commands Used</h3>
+                    <ul>
+                        ${caseData.tools.map(tool => `<li><code style="background: var(--bg-primary); padding: 2px 6px; border-radius: 4px;">${tool}</code></li>`).join('')}
+                    </ul>
+                    
+                    <h3>Preventive Measures</h3>
+                    <p>${caseData.prevention}</p>
+                    
+                    <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 3px solid var(--accent);">
+                        <strong style="color: var(--accent);">Key Takeaway:</strong>
+                        <p style="margin-top: 0.5rem;">${caseData.takeaway}</p>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <p style="color: var(--text-secondary); font-size: 0.8rem;">Video demonstration is currently being recorded. Check back soon!</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    
+    // Make closeCaseModal available globally
+    window.closeCaseModal = function() {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            closeCaseModal();
+        }
+    };
+    
+    // Escape key to close modal
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal && modal.style.display === 'block') {
+            closeCaseModal();
+        }
+    });
+    
+    // Case data for modal content
+    function getCaseData(caseId) {
+        const cases = {
+            case1: {
+                title: "DNS Resolution Failure After Server Migration",
+                status: "Resolved",
+                statusClass: "resolved",
+                breakdown: "Post-server migration, internal clients couldn't resolve domain-joined resources. External websites resolved correctly, indicating internet DNS was functional.",
+                steps: [
+                    "Verified DNS server roles were still active",
+                    "Checked forwarders for external resolution",
+                    "Reviewed event logs for zone errors",
+                    "Discovered missing reverse lookup zones after IP scheme change",
+                    "Recreated reverse zones with correct IP ranges",
+                    "Updated DHCP scope options and forced renew"
+                ],
+                tools: ["dnscmd /ZoneUpdateFromDs", "nslookup", "Event Viewer", "DHCP Console"],
+                prevention: "Created migration checklist including reverse zone verification before IP scheme changes.",
+                takeaway: "Reverse lookup zones are often forgotten but critical for domain-joined resource resolution."
+            },
+            case2: {
+                title: "Radio Link Intermittent Connectivity",
+                status: "Resolved",
+                statusClass: "resolved",
+                breakdown: "Site-to-site radio link experienced intermittent packet loss (15-30%) during peak afternoon hours, affecting VoIP calls and file transfers.",
+                steps: [
+                    "Logged into MikroTik WinBox to review radio statistics",
+                    "Analyzed signal strength and noise floor levels",
+                    "Used spectrum analyzer to identify interference on 5GHz",
+                    "Changed frequency channel to less congested option",
+                    "Adjusted antenna alignment for optimal SNR (25+ dB)",
+                    "Implemented automatic channel hopping script"
+                ],
+                tools: ["MikroTik WinBox", "The Dude", "Spectrum Analyzer", "SNR Meter"],
+                prevention: "Monthly spectrum analysis schedule and automated channel selection based on interference detection.",
+                takeaway: "Wireless troubleshooting requires understanding of interference patterns - signal strength alone isn't enough."
+            },
+            case3: {
+                title: "PoE Camera Power Failure Tracing",
+                status: "Resolved",
+                statusClass: "resolved",
+                breakdown: "Security camera failed after maintenance work. Other cameras on same switch worked normally.",
+                steps: [
+                    "Tested switch port voltage with PoE tester (48V present)",
+                    "Used tone generator to trace cable path through ceiling",
+                    "Found rodent damage causing intermittent short",
+                    "Spliced damaged section with waterproof connectors",
+                    "Tested continuity and power delivery",
+                    "Installed conduit protection for vulnerable sections"
+                ],
+                tools: ["PoE Tester", "Cable Tone Generator", "Multimeter", "Crimping Tool"],
+                prevention: "Installed physical conduit protection in ceiling spaces and scheduled quarterly cable inspections.",
+                takeaway: "Physical layer issues require proper diagnostic tools - never assume the problem is at the switch."
+            },
+            case4: {
+                title: "Complete Office Network Outage Resolved Through VLAN Reconfiguration",
+                status: "Resolved",
+                statusClass: "resolved",
+                breakdown: "A client reported a complete internet outage across their office network. Initial checks confirmed physical connectivity, but users were unable to access online services.",
+                steps: [
+                    "Traced PoE cable path from router to wireless radio",
+                    "Performed direct laptop connection tests to isolate failure point",
+                    "Logged into MikroTik router using WinBox",
+                    "Audited configuration - found all VLAN assignments cleared from main bridge",
+                    "Reconfigured VLAN settings through WinBox",
+                    "Verified successful internet connectivity across client environment"
+                ],
+                tools: ["WinBox", "Laptop Diagnostics", "VLAN Configuration", "PoE Tester"],
+                prevention: "Implement configuration backup schedule and surge protection for network equipment.",
+                takeaway: "Always verify VLAN assignments on bridge interfaces after power events - they can reset unexpectedly."
+            },
+            case5: {
+                title: "Router Connectivity Diagnosis for Remote Site",
+                status: "Investigation",
+                statusClass: "investigation",
+                breakdown: "Remote site router lost connectivity after firmware update. Site unreachable for remote management, requiring on-site diagnosis.",
+                steps: [
+                    "Accessed via serial console cable",
+                    "Reviewed boot logs for error messages",
+                    "Identified missing NAT configuration",
+                    "Found default route missing post-update",
+                    "Rolled back to previous firmware version",
+                    "Restored from backup configuration",
+                    "Developing staged upgrade process"
+                ],
+                tools: ["Console Cable", "RouterOS CLI", "Configuration Backup", "WinBox"],
+                prevention: "Implement staged firmware upgrade process with pre-upgrade validation checks.",
+                takeaway: "Always have backup configurations and rollback plans before any firmware update."
+            },
+            case6: {
+                title: "Network Monitoring Alert Storm Analysis",
+                status: "In Progress",
+                statusClass: "in-progress",
+                breakdown: "Monitoring system generated 500+ false positive alerts daily, causing alert fatigue and missed critical incidents.",
+                steps: [
+                    "Exported all alert data for pattern analysis",
+                    "Identified overlapping monitoring intervals",
+                    "Reviewed threshold configurations against baseline",
+                    "Implemented deduplication logic in Python",
+                    "Created maintenance window suppression rules",
+                    "Testing new configuration before full rollout"
+                ],
+                tools: ["The Dude", "Python", "InfluxDB", "Grafana"],
+                prevention: "Establish baseline metrics before setting thresholds; implement change management for monitoring config.",
+                takeaway: "Alert fatigue is dangerous - quality over quantity in monitoring alerts is essential."
+            }
+        };
+        
+        return cases[caseId];
+    }
+    
     // ========== CONTACT FORM HANDLING WITH FORMSPREE ==========
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
@@ -353,6 +534,21 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     
     console.log('All features initialized successfully');
+});
+
+// ========== PRELOADER / SPLASH SCREEN ==========
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Add a minimum display time of 1.5 seconds for better UX
+        setTimeout(function() {
+            preloader.classList.add('hide');
+            // Remove from DOM after animation completes
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1500);
+    }
 });
 
 // ========== GLOBAL ERROR HANDLING ==========
