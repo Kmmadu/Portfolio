@@ -125,75 +125,98 @@
   </div>
 </section>
 
-<!-- Projects Section -->
+<!-- Projects Section - Enhanced -->
 <section id="projects" class="section">
   <div class="container">
-    <h2 data-aos="fade-up">Featured Projects</h2>
+    <div class="section-header" data-aos="fade-up">
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">Real-world implementations demonstrating technical expertise and problem-solving abilities</p>
+    </div>
     <div class="projects-grid">
       
-      <!-- Project 1: NetPulse - Network Monitoring System (Completed) -->
-      <div class="project-card" data-aos="fade-up">
-        <div class="project-image">
-          <a href="assets/NetPulse_demo_video.mp4" target="_blank">
-            <img src="assets/NetPulse.png" alt="NetPulse Network Monitoring Dashboard">
-          </a>
+      <!-- Project 1: NetPulse - Network Monitoring System -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-image youtube-thumbnail" data-video-id="14A_EaLmsCQ">
+          <img src="assets/NetPulse.png" alt="NetPulse Network Monitoring Dashboard">
+          <div class="video-overlay">
+            <i class="fab fa-youtube"></i>
+            <span>Watch Demo</span>
+          </div>
         </div>
         <div class="project-content">
-          <h3>NetPulse Monitoring Tool</h3>
-          <p>A network monitoring system that tracks device availability via ping and sends email alerts when devices go down or recover. Includes a web dashboard for real-time status viewing.</p>
+          <div class="project-header">
+            <h3>NetPulse Monitoring Tool</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p>Built a lightweight network monitoring solution that tracks device availability through ICMP ping requests and delivers automated email alerts during outages or recovery events. Features a real-time web dashboard for infrastructure visibility.</p>
           <div class="tech-stack">
             <span>Python</span>
             <span>ICMP/Ping</span>
-            <span>SMTP Email Alerts</span>
+            <span>SMTP</span>
+            <span>Flask</span>
+            <span>SQLite</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Kmmadu/NetPulse" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-            <a href="assets/NetPulse_demo_video.mp4" target="_blank" class="video-demo-link"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            <a href="https://github.com/Kmmadu/NetPulse" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+            <button class="video-demo-btn" data-video-id="14A_EaLmsCQ"><i class="fab fa-youtube"></i> Watch Demo</button>
           </div>
         </div>
       </div>
 
       <!-- Project 2: AutoConfigBackup - In Development -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
         <div class="project-image">
           <img src="assets/In_progress.png" alt="AutoConfigBackup - In Development">
           <div class="coming-soon-badge">In Development</div>
         </div>
         <div class="project-content">
-          <h3>AutoConfigBackup</h3>
-          <p>Automated network configuration backup and version control tool built with Python, Netmiko, and APScheduler. Supports scheduled backups, change detection, logging, and alerting for network devices.</p>
+          <div class="project-header">
+            <h3>AutoConfigBackup</h3>
+            <span class="project-status in-progress">In Development</span>
+          </div>
+          <p>Automated network configuration backup system using Python, Netmiko, and APScheduler. Will support scheduled backups, change detection, version control, and email notifications for network devices.</p>
           <div class="tech-stack">
             <span>Python</span>
             <span>Netmiko</span>
             <span>APScheduler</span>
+            <span>Git</span>
+          </div>
+          <div class="project-outcomes">
+            <i class="fas fa-clock"></i>
+            <span>Expected completion: Q4 2026</span>
           </div>
           <div class="project-links">
-            <a href="#" style="opacity:0.6; cursor: not-allowed;"><i class="fab fa-github"></i> Currently in Development</a>
+            <a href="#" style="opacity:0.6; cursor: not-allowed;"><i class="fab fa-github"></i> In Development</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 3: Small Office Network Design (Completed) -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-image">
-          <a href="assets/small_office_network_demo.mp4" target="_blank">
-            <img src="assets/small_office_topology.png" alt="Small Office Network Topology">
-          </a>
+      <!-- Project 3: Small Office Network Design -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="project-image youtube-thumbnail" data-video-id="bmObBJwOoWA">
+          <img src="assets/small_office_topology.png" alt="Small Office Network Topology">
+          <div class="video-overlay">
+            <i class="fab fa-youtube"></i>
+            <span>Watch Demo</span>
+          </div>
         </div>
         <div class="project-content">
-          <h3>Small Office Network Design</h3>
-          <p>Designed and simulated a small office network using Cisco Packet Tracer. Configured VLAN segmentation, trunking, inter-VLAN routing, DHCP, NAT, and WAN connectivity to enable secure communication between multiple departments and external networks.</p>
+          <div class="project-header">
+            <h3>Small Office Network Design</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p>Designed and simulated a multi-department office network using Cisco Packet Tracer. Implemented VLAN segmentation, 802.1Q trunking, router-on-a-stick inter-VLAN routing, DHCP services, NAT overload, and WAN connectivity.</p>
           <div class="tech-stack">
             <span>Cisco Packet Tracer</span>
-            <span>VLANs</span>
+            <span>VLANs (10,20,30)</span>
+            <span>802.1Q Trunking</span>
             <span>DHCP</span>
-            <span>NAT</span>
-            <span>Router-on-a-Stick</span>
-            <span>WAN Configuration</span>
+            <span>NAT/PAT</span>
+            <span>Static Routing</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Kmmadu/Small-Office-Network-Design" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-            <a href="assets/small_office_network_demo.mp4" target="_blank" class="video-demo-link"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            <a href="https://github.com/Kmmadu/Small-Office-Network-Design" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+            <button class="video-demo-btn" data-video-id="bmObBJwOoWA"><i class="fab fa-youtube"></i> Watch Demo</button>
           </div>
         </div>
       </div>
@@ -300,65 +323,100 @@
   </div>
 </section>
 
-<!-- Technical Case Studies Section -->
+<!-- Technical Case Studies Section - Enhanced -->
 <section id="case-studies" class="section">
   <div class="container">
-    <h2 data-aos="fade-up">Technical Case Studies</h2>
-    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-      Real-world troubleshooting scenarios demonstrating problem-solving methodology and technical expertise
-    </p>
+    <div class="section-header" data-aos="fade-up">
+      <h2>Technical Case Studies</h2>
+      <p class="section-subtitle">Real troubleshooting scenarios demonstrating systematic problem-solving methodology</p>
+    </div>
 
     <!-- Filter Buttons -->
-    <div class="filter-buttons" data-aos="fade-up" data-aos-delay="150">
+    <div class="filter-buttons" data-aos="fade-up" data-aos-delay="100">
       <button class="filter-btn active" data-filter="all">All Cases</button>
       <button class="filter-btn" data-filter="networking">Networking</button>
       <button class="filter-btn" data-filter="troubleshooting">Troubleshooting</button>
       <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-      <button class="filter-btn" data-filter="automation">Automation</button>
     </div>
 
     <!-- Case Studies Grid -->
     <div class="case-grid" id="case-grid">
       
-      <!-- Case Study 1 - VLAN Configuration -->
-      <div class="case-card" data-aos="fade-up" data-aos-delay="200" data-category="networking troubleshooting">
+      <!-- Case Study 1 - VLAN Outage -->
+      <div class="case-card" data-aos="fade-up" data-aos-delay="150" data-category="networking troubleshooting">
         <div class="case-badge resolved">Resolved</div>
         <div class="case-icon">
           <i class="fas fa-network-wired"></i>
         </div>
-        <h3>Complete Office Network Outage Resolved Through VLAN Reconfiguration</h3>
-        <div class="case-problem">
-          <strong>Problem:</strong>
-          <p>A client reported a complete internet outage across their office network. Initial checks confirmed physical connectivity, but users were unable to access online services.</p>
+        <h3>Complete Office Network Outage</h3>
+        <div class="case-meta">Incident Duration: 2 hours | Impact: 25 users</div>
+        
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Problem Statement</strong>
+          </div>
+          <p>Client reported complete internet outage across office network. Physical connectivity confirmed, but users unable to access online services or internal resources.</p>
         </div>
-        <div class="case-investigation">
-          <strong>Investigation:</strong>
-          <p>Traced the PoE cable path from the router to the wireless radio, performed direct laptop connection tests to isolate the failure point, and logged into the MikroTik router using WinBox. Configuration audit revealed that all VLAN assignments (including VLAN 1 and 2) had been cleared from the main bridge interface after a recent power surge, breaking network segmentation and DHCP relay to clients.</p>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-search"></i>
+            <strong>Investigation Process</strong>
+          </div>
+          <ul>
+            <li>Traced PoE cable path from router to wireless radio</li>
+            <li>Performed direct laptop connection tests to isolate failure point</li>
+            <li>Logged into MikroTik router via WinBox for configuration audit</li>
+            <li>Discovered all VLAN assignments cleared from main bridge interface after power surge</li>
+            <li>Identified broken network segmentation and DHCP relay to clients</li>
+          </ul>
         </div>
-        <div class="case-resolution">
-          <strong>Resolution:</strong>
-          <p>Reconfigured the required VLAN settings through Winbox, restored proper network segmentation, and verified successful internet connectivity across the client environment.</p>
+
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-tools"></i>
+            <strong>Resolution Applied</strong>
+          </div>
+          <p>Reconfigured required VLAN settings through WinBox, restored proper network segmentation, verified DHCP relay functionality, and confirmed internet connectivity across client environment.</p>
         </div>
+
         <div class="case-tools">
           <span><i class="fas fa-tachometer-alt"></i> WinBox</span>
           <span><i class="fas fa-laptop"></i> Laptop Diagnostics</span>
           <span><i class="fas fa-diagram-project"></i> VLAN Configuration</span>
+          <span><i class="fas fa-dhcp"></i> DHCP Relay</span>
         </div>
-        <a href="assets/Vlan_Config.mp4" target="_blank" class="case-btn">
-          <i class="fas fa-play-circle"></i> Watch Technical Breakdown
-        </a>
+
+        <div class="case-lesson">
+          <i class="fas fa-graduation-cap"></i>
+          <strong>Key Takeaway:</strong> Power surges can corrupt device configurations. Always maintain recent backups and consider UPS protection for critical infrastructure.
+        </div>
+
+        <button class="case-btn video-demo-btn" data-video-id="14A_EaLmsCQ">
+          <i class="fab fa-youtube"></i> Watch Technical Breakdown
+        </button>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- Modal for Video Breakdown -->
-<div id="caseModal" class="case-modal">
+<!-- YouTube Modal -->
+<div id="youtubeModal" class="youtube-modal">
   <div class="modal-content">
-    <span class="modal-close" onclick="closeCaseModal()">&times;</span>
-    <div id="modal-body">
-      <!-- Dynamic content loaded here -->
+    <span class="modal-close">&times;</span>
+    <div class="video-container">
+      <iframe 
+        id="youtubeIframe" 
+        width="100%" 
+        height="400" 
+        src="" 
+        frameborder="0" 
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 </div>
