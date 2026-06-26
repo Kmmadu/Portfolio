@@ -313,27 +313,33 @@
 <!-- Technical Case Studies Section -->
 <section id="case-studies" class="section">
   <div class="container">
+
     <div class="section-header" data-aos="fade-up">
       <h2>Technical Case Studies</h2>
-      <p class="section-subtitle">Real troubleshooting scenarios demonstrating problem-solving methodology</p>
+      <p class="section-subtitle">
+        Real troubleshooting scenarios demonstrating problem-solving methodology
+      </p>
     </div>
-
     <div class="case-grid">
-      
+
+      <!-- CASE STUDY 1 -->
       <div class="case-card" data-aos="fade-up" data-aos-delay="150">
         <div class="case-badge resolved">Resolved</div>
         <div class="case-icon">
           <i class="fas fa-network-wired"></i>
         </div>
-        <h3>Complete Office Network Outage</h3>        
+        <h3>Complete Office Network Outage</h3>
         <div class="case-section">
           <div class="case-section-title">
             <i class="fas fa-exclamation-triangle"></i>
             <strong>Problem Statement</strong>
           </div>
-          <p>Client reported complete internet outage across office network. Physical connectivity confirmed, but users unable to access online services or internal resources.</p>
+          <p>
+            Client reported complete internet outage across the office network.
+            Physical connectivity was confirmed, but users were unable to access
+            online services or internal resources.
+          </p>
         </div>
-
         <div class="case-section">
           <div class="case-section-title">
             <i class="fas fa-search"></i>
@@ -342,34 +348,127 @@
           <ul>
             <li>Traced PoE cable path from router to wireless radio</li>
             <li>Performed direct laptop connection tests to isolate failure point</li>
-            <li>Logged into MikroTik router via WinBox for configuration audit</li>
-            <li>Discovered all VLAN assignments cleared from main bridge interface after power surge</li>
-            <li>Identified broken network segmentation and DHCP relay to clients</li>
+            <li>Accessed MikroTik router through WinBox for configuration audit</li>
+            <li>Identified missing VLAN assignments on the main bridge interface after power interruption</li>
+            <li>Verified broken network segmentation and DHCP relay communication</li>
           </ul>
         </div>
-
         <div class="case-section">
           <div class="case-section-title">
             <i class="fas fa-tools"></i>
             <strong>Resolution Applied</strong>
           </div>
-          <p>Reconfigured required VLAN settings through WinBox, restored proper network segmentation, verified DHCP relay functionality, and confirmed internet connectivity across client environment.</p>
+          <p>
+            Restored required VLAN configurations through WinBox,
+            verified DHCP relay functionality, and confirmed successful
+            internet connectivity across the client environment.
+          </p>
         </div>
-
         <div class="case-tools">
-          <span><i class="fas fa-tachometer-alt"></i> WinBox</span>
-          <span><i class="fas fa-laptop"></i> Laptop Diagnostics</span>
-          <span><i class="fas fa-diagram-project"></i> VLAN Configuration</span>
+          <span>
+            <i class="fas fa-desktop"></i>
+            WinBox
+          </span>
+          <span>
+            <i class="fas fa-laptop"></i>
+            Laptop Diagnostics
+          </span>
+          <span>
+            <i class="fas fa-diagram-project"></i>
+            VLAN Configuration
+          </span>
         </div>
-
         <a href="assets/Vlan_Config.mp4" target="_blank" class="case-btn">
-          <i class="fas fa-play-circle"></i> Watch Technical Breakdown
+          <i class="fas fa-play-circle"></i>
+          Watch Technical Breakdown
         </a>
       </div>
 
+
+      <!-- CASE STUDY 2 -->
+      <div class="case-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="case-badge resolved">Resolved</div>
+        <div class="case-icon">
+          <i class="fas fa-gauge-high"></i>
+        </div>
+        <h3>Slow Internet Link Performance Investigation</h3>
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Problem Statement</strong>
+          </div>
+          <p>
+            Client reported slow internet performance.
+            The objective was to determine whether the issue was caused by
+            wireless connectivity, network configuration, or bandwidth utilization.
+          </p>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-search"></i>
+            <strong>Investigation Process</strong>
+          </div>
+          <ul>
+            <li>Connected directly to client network equipment through PoE for isolation testing</li>
+            <li>Configured static IP settings including IP address, subnet mask, gateway, and DNS</li>
+            <li>Verified internet access after network configuration</li>
+            <li>Performed bandwidth testing using multiple speed test servers</li>
+            <li>Compared results based on server location, routing path, and performance</li>
+            <li>Used MikroTik WinBox to review wireless link performance between base radio and customer radio</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-tools"></i>
+            <strong>Findings & Resolution</strong>
+          </div>
+          <p>
+
+            Testing confirmed that the wireless link was operating normally.
+            Investigation suggested that the customer was reaching their subscribed
+            bandwidth capacity. The recommended solution was bandwidth upgrade
+            rather than infrastructure repair.
+          </p>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">
+            <i class="fas fa-graduation-cap"></i>
+            <strong>Key Learning</strong>
+          </div>
+          <p>
+            Learned the importance of structured troubleshooting.
+            A single speed test does not always represent complete network performance.
+            Testing with different servers provides better visibility into routing,
+            latency, and bandwidth behaviour.
+          </p>
+        </div>
+        <div class="case-tools">
+          <span>
+            <i class="fas fa-network-wired"></i>
+            MikroTik
+          </span>
+          <span>
+            <i class="fas fa-laptop"></i>
+            Network Diagnostics
+          </span>
+          <span>
+            <i class="fas fa-chart-line"></i>
+            Bandwidth Testing
+          </span>
+          <span>
+            <i class="fas fa-desktop"></i>
+            WinBox
+          </span>
+        </div>
+        <a href="assets/Slow_Internet_Performance.mp4" target="_blank" class="case-btn">
+          <i class="fas fa-play-circle"></i>
+          Watch Technical Breakdown
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- Contact Section - Centered -->
 <section id="contact" class="section">
